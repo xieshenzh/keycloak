@@ -94,7 +94,7 @@
         <jboss-transaction-api_1.3_spec>2.0.0.Final</jboss-transaction-api_1.3_spec>
         <jboss.spec.javax.xml.bind.jboss-jaxb-api_2.3_spec.version>2.0.1.Final</jboss.spec.javax.xml.bind.jboss-jaxb-api_2.3_spec.version>
         <jboss.spec.javax.servlet.jsp.jboss-jsp-api_2.3_spec.version>2.0.0.Final</jboss.spec.javax.servlet.jsp.jboss-jsp-api_2.3_spec.version>
-        <log4j.version>1.2.17</log4j.version>
+        <reload4j.version>1.2.25</reload4j.version>
         <resteasy.version>4.7.7.Final</resteasy.version>
         <resteasy.undertow.version>${resteasy.version}</resteasy.undertow.version>
         <owasp.html.sanitizer.version>20211018.2</owasp.html.sanitizer.version>
@@ -106,7 +106,7 @@
         <sun.xml.ws.version>2.3.1</sun.xml.ws.version>
         <sun.activation.version>1.2.2</sun.activation.version>
         <org.glassfish.jaxb.xsom.version>2.3.3-b02</org.glassfish.jaxb.xsom.version>
-        <undertow.version>2.2.19.Final</undertow.version>
+        <undertow.version>2.2.24.Final</undertow.version>
         <wildfly-elytron.version>1.20.3.Final</wildfly-elytron.version>
         <elytron.undertow-server.version>1.9.0.Final</elytron.undertow-server.version>
         <jetty94.version>9.4.40.v20210413</jetty94.version>
@@ -132,6 +132,7 @@
         <commons-lang.version>2.6</commons-lang.version>
         <commons-lang3.version>3.11</commons-lang3.version>
         <commons-io.version>2.7</commons-io.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
         <apacheds.version>2.0.0.AM26</apacheds.version>
         <apacheds.codec.version>2.0.0</apacheds.codec.version>
         <google.zxing.version>3.4.0</google.zxing.version>
@@ -165,7 +166,7 @@
         <jmeter.version>2.10</jmeter.version>
         <junit.version>4.13.2</junit.version>
         <picketlink.version>2.7.0.Final</picketlink.version>
-        <selenium.version>2.35.0</selenium.version>
+        <selenium.version>4.9.1</selenium.version>
         <!-- Needs to be aligned with Quarkus, see e.g. https://github.com/quarkusio/quarkus-quickstarts/blob/2.13.5.Final/getting-started-async/pom.xml#L14 -->
         <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
         <xml-apis.version>1.4.01</xml-apis.version>
@@ -570,9 +571,9 @@
                 <version>${jboss.logging.tools.version}</version>
             </dependency>
             <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
+                <groupId>ch.qos.reload4j</groupId>
+                <artifactId>reload4j</artifactId>
+                <version>${reload4j.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -707,6 +708,12 @@
                 <groupId>org.apache.directory.server</groupId>
                 <artifactId>apacheds-core-annotations</artifactId>
                 <version>${apacheds.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-collections</groupId>
+                        <artifactId>commons-collections</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.apache.directory.server</groupId>
@@ -722,6 +729,11 @@
                 <groupId>org.apache.directory.api</groupId>
                 <artifactId>api-ldap-codec-standalone</artifactId>
                 <version>${apacheds.codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
             </dependency>
 
             <!-- Selenium -->
