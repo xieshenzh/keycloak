@@ -41,13 +41,13 @@
         <jboss.snapshots.repo.id>jboss-snapshots-repository</jboss.snapshots.repo.id>
         <jboss.snapshots.repo.url>https://s01.oss.sonatype.org/content/repositories/snapshots/</jboss.snapshots.repo.url>
 
-        <quarkus.version>2.16.7.Final</quarkus.version>
+        <quarkus.version>3.0.2.Final</quarkus.version>
 
         <project.build-time>${timestamp}</project.build-time>
 
-        <wildfly.version>26.1.1.Final</wildfly.version>
+        <wildfly.version>27.0.1.Final</wildfly.version>
         <wildfly.build-tools.version>1.2.13.Final</wildfly.build-tools.version>
-        <wildfly.core.version>18.1.1.Final</wildfly.core.version>
+        <wildfly.core.version>19.0.1.Final</wildfly.core.version>
         <wildfly.jakarta.adapters>true</wildfly.jakarta.adapters>
         <apache.httpcomponents.fuse.version>4.5.2</apache.httpcomponents.fuse.version>
         <apache.httpcomponents.httpcore.fuse.version>4.4.4</apache.httpcomponents.httpcore.fuse.version>
