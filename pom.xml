@@ -71,7 +71,7 @@
         <bouncycastle-bcprov-jdk15on.version>1.70</bouncycastle-bcprov-jdk15on.version>
 
         <!-- TODO Are these correct versions? -->
-        <bouncycastle.fips.version>1.0.2.3</bouncycastle.fips.version>
+        <bouncycastle.fips.version>1.0.2.4</bouncycastle.fips.version>
         <bouncycastle.pkixfips.version>1.0.7</bouncycastle.pkixfips.version>
         <bouncycastle.tlsfips.version>1.0.14.1</bouncycastle.tlsfips.version>
 
