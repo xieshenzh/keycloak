@@ -498,6 +498,17 @@
             <groupId>org.infinispan</groupId>
             <artifactId>infinispan-client-hotrod-jakarta</artifactId>
             <version>${infinispan.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.sshd</groupId>
+                    <artifactId>sshd-common</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sshd</groupId>
+            <artifactId>sshd-common</artifactId>
+            <version>${sshd-common.version}</version>
         </dependency>
         <dependency>
             <groupId>org.infinispan</groupId>

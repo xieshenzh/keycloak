@@ -87,6 +87,7 @@
         <hibernate.c3p0.version>${hibernate-orm.version}</hibernate.c3p0.version>
         <infinispan.version>14.0.9.Final</infinispan.version>
         <infinispan.protostream.processor.version>4.6.2.Final</infinispan.protostream.processor.version>
+        <sshd-common.version>2.10.0</sshd-common.version>
         <jackson.version>2.14.2</jackson.version>
         <jackson.databind.version>2.14.2</jackson.databind.version>
         <jackson.annotations.version>${jackson.version}</jackson.annotations.version>
@@ -1085,6 +1086,17 @@
                 <groupId>org.infinispan</groupId>
                 <artifactId>infinispan-client-hotrod-jakarta</artifactId>
                 <version>${infinispan.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.sshd</groupId>
+                        <artifactId>sshd-common</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sshd</groupId>
+                <artifactId>sshd-common</artifactId>
+                <version>${sshd-common.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.infinispan</groupId>
