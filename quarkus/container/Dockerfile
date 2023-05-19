@@ -14,6 +14,10 @@ RUN (cd /tmp/keycloak && \
     rm /tmp/keycloak/keycloak-*.tar.gz) || true
 
 RUN mv /tmp/keycloak/keycloak-* /opt/keycloak && mkdir -p /opt/keycloak/data
+RUN rm /opt/keycloak/lib/lib/main/com.h2database.h2*.jar  \
+    /opt/keycloak/lib/lib/deployment/io.quarkus.quarkus-devservices-h2*.jar  \
+    /opt/keycloak/lib/lib/main/io.quarkus.quarkus-jdbc-h2*.jar  \
+    /opt/keycloak/lib/lib/deployment/io.quarkus.quarkus-jdbc-h2-deployment*.jar
 RUN chmod -R g+rwX /opt/keycloak
 
 ADD ubi-null.sh /tmp/
