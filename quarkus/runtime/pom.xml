@@ -95,6 +95,16 @@
         <dependency>
             <groupId>org.wildfly.security</groupId>
             <artifactId>wildfly-elytron</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.bitbucket.b_c</groupId>
+                    <artifactId>jose4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.bitbucket.b_c</groupId>
+            <artifactId>jose4j</artifactId>
         </dependency>
 
         <!-- CLI -->
