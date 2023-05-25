@@ -9,20 +9,12 @@ ADD $KEYCLOAK_DIST /tmp/keycloak/
 
 # The next step makes it uniform for local development and upstream built.
 # If it is a local tar archive then it is unpacked, if from remote is just downloaded.
-RUN (cd /tmp/keycloak && \
-    tar -xvf /tmp/keycloak/keycloak-*.tar.gz && \
-    rm /tmp/keycloak/keycloak-*.tar.gz) || true
+# ADD unpacks the tar file where as COPY will only copy (and not unpack)
+#RUN (cd /tmp/keycloak && \
+#    tar -xvf /tmp/keycloak/keycloak-*.tar.gz && \
+#    rm /tmp/keycloak/keycloak-*.tar.gz) || true
 
 RUN mv /tmp/keycloak/keycloak-* /opt/keycloak && mkdir -p /opt/keycloak/data
-RUN rm /opt/keycloak/lib/lib/main/com.h2database.h2*.jar  \
-    /opt/keycloak/lib/lib/deployment/io.quarkus.quarkus-devservices-h2*.jar  \
-    /opt/keycloak/lib/lib/main/io.quarkus.quarkus-jdbc-h2*.jar  \
-    /opt/keycloak/lib/lib/deployment/io.quarkus.quarkus-jdbc-h2-deployment*.jar  \
-    /opt/keycloak/lib/lib/main/mysql.mysql-connector-java*.jar  \
-    /opt/keycloak/lib/lib/deployment/io.quarkus.quarkus-devservices-mysql*.jar  \
-    /opt/keycloak/lib/lib/main/io.quarkus.quarkus-jdbc-mysql*.jar  \
-    /opt/keycloak/lib/lib/deployment/io.quarkus.quarkus-jdbc-mysql-deployment*.jar  \
-    /opt/keycloak/lib/lib/deployment/org.testcontainers.mysql*.jar
 RUN chmod -R g+rwX /opt/keycloak
 
 ADD ubi-null.sh /tmp/
