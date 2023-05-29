@@ -1,5 +1,5 @@
 import type AuthenticationFlowRepresentation from "@keycloak/keycloak-admin-client/lib/defs/authenticationFlowRepresentation";
-import type IdentityProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/IdentityProviderRepresentation";
+import type IdentityProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation";
 import {
   FormGroup,
   Select,
