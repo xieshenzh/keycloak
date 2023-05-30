@@ -23,12 +23,14 @@ import org.keycloak.it.junit5.extension.CLITest;
 
 import io.quarkus.test.junit.main.Launch;
 import io.quarkus.test.junit.main.LaunchResult;
+import org.keycloak.it.junit5.extension.WithDatabase;
 import org.keycloak.quarkus.runtime.cli.command.ShowConfig;
 import org.keycloak.quarkus.runtime.configuration.mappers.PropertyMappers;
 
 import static org.keycloak.quarkus.runtime.cli.command.Main.CONFIG_FILE_LONG_NAME;
 
 @CLITest
+@WithDatabase(alias = "postgres")
 public class ShowConfigCommandTest {
 
     @Test

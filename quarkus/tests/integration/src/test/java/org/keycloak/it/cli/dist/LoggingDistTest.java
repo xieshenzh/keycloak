@@ -33,6 +33,7 @@ import org.keycloak.it.junit5.extension.RawDistOnly;
 import io.quarkus.test.junit.main.Launch;
 import io.quarkus.test.junit.main.LaunchResult;
 
+import org.keycloak.it.junit5.extension.WithDatabase;
 import org.keycloak.it.utils.KeycloakDistribution;
 import org.keycloak.it.utils.RawDistRootPath;
 import org.testcontainers.shaded.org.apache.commons.io.FileUtils;
@@ -45,6 +46,7 @@ import java.nio.file.Paths;
 
 @DistributionTest
 @RawDistOnly(reason = "Too verbose for docker and enough to check raw dist")
+@WithDatabase(alias = "postgres")
 public class LoggingDistTest {
 
     @Test

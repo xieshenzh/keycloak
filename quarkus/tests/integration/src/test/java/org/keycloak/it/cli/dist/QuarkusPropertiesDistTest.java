@@ -34,6 +34,7 @@ import org.keycloak.it.junit5.extension.DistributionTest;
 import org.keycloak.it.junit5.extension.KeepServerAlive;
 import org.keycloak.it.junit5.extension.LegacyStore;
 import org.keycloak.it.junit5.extension.RawDistOnly;
+import org.keycloak.it.junit5.extension.WithDatabase;
 import org.keycloak.it.utils.KeycloakDistribution;
 
 import io.quarkus.test.junit.main.Launch;
@@ -43,6 +44,7 @@ import io.quarkus.test.junit.main.LaunchResult;
 @RawDistOnly(reason = "Containers are immutable")
 @TestMethodOrder(OrderAnnotation.class)
 @LegacyStore
+@WithDatabase(alias = "postgres")
 public class QuarkusPropertiesDistTest {
 
     private static final String QUARKUS_BUILDTIME_HIBERNATE_METRICS_KEY = "quarkus.datasource.metrics.enabled";

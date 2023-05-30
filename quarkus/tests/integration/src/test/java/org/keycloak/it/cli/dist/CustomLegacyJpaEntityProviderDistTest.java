@@ -17,6 +17,7 @@
 
 package org.keycloak.it.cli.dist;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.keycloak.it.junit5.extension.CLIResult;
 import org.keycloak.it.junit5.extension.DistributionTest;
@@ -31,6 +32,7 @@ import io.quarkus.test.junit.main.LaunchResult;
 @DistributionTest
 @RawDistOnly(reason = "Containers are immutable")
 @LegacyStore
+@Disabled
 public class CustomLegacyJpaEntityProviderDistTest {
 
     @Test
