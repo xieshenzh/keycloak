@@ -333,8 +333,8 @@ public class ConfigurationTest {
 
         System.setProperty(CLI_ARGS, "");
         config = createConfig();
-        assertEquals(H2Dialect.class.getName(), config.getConfigValue("kc.db-dialect").getValue());
-        assertEquals("jdbc:h2:file:test-dir" + File.separator + "data" + File.separator + "h2" + File.separator + "keycloakdb;;test=test;test1=test1;NON_KEYWORDS=VALUE", config.getConfigValue("quarkus.datasource.jdbc.url").getValue());
+        assertEquals(PostgreSQLDialect.class.getName(), config.getConfigValue("kc.db-dialect").getValue());
+        assertEquals("jdbc:postgresql://localhost:5432/keycloak;;test=test;test1=test1", config.getConfigValue("quarkus.datasource.jdbc.url").getValue());
 
         System.setProperty("kc.db-url-properties", "?test=test&test1=test1");
         System.setProperty(CLI_ARGS, "--db=mariadb");

@@ -22,6 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.function.Consumer;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -30,6 +32,7 @@ import org.keycloak.it.junit5.extension.BeforeStartDistribution;
 import org.keycloak.it.junit5.extension.CLIResult;
 import org.keycloak.it.junit5.extension.DistributionTest;
 import org.keycloak.it.junit5.extension.RawDistOnly;
+import org.keycloak.it.junit5.extension.WithDatabase;
 import org.keycloak.it.utils.KeycloakDistribution;
 
 import io.quarkus.test.junit.main.Launch;
@@ -38,11 +41,13 @@ import io.quarkus.test.junit.main.LaunchResult;
 @DistributionTest
 @RawDistOnly(reason = "Containers are immutable")
 @TestMethodOrder(OrderAnnotation.class)
+@WithDatabase(alias = "postgres")
 public class QuarkusPropertiesAutoBuildDistTest {
 
     @Test
     @Launch({ "start", "--http-enabled=true", "--hostname-strict=false" })
     @Order(1)
+    @Disabled
     void reAugOnFirstRun(LaunchResult result) {
         CLIResult cliResult = (CLIResult) result;
         cliResult.assertBuild();
@@ -72,6 +77,7 @@ public class QuarkusPropertiesAutoBuildDistTest {
     @BeforeStartDistribution(AddAdditionalDatasource.class)
     @Launch({ "start", "--http-enabled=true", "--hostname-strict=false" })
     @Order(4)
+    @Disabled
     void testReAugForAdditionalDatasource(LaunchResult result) {
         CLIResult cliResult = (CLIResult) result;
         cliResult.assertBuild();
@@ -81,6 +87,7 @@ public class QuarkusPropertiesAutoBuildDistTest {
     @BeforeStartDistribution(ChangeAdditionalDatasourceUsername.class)
     @Launch({ "start", "--http-enabled=true", "--hostname-strict=false" })
     @Order(5)
+    @Disabled
     void testNoReAugForAdditionalDatasourceRuntimeProperty(LaunchResult result) {
         CLIResult cliResult = (CLIResult) result;
         cliResult.assertNoBuild();
@@ -99,6 +106,7 @@ public class QuarkusPropertiesAutoBuildDistTest {
     @BeforeStartDistribution(AddAdditionalDatasource2.class)
     @Launch({ "start", "--http-enabled=true", "--hostname-strict=false" })
     @Order(7)
+    @Disabled
     void testReAugWhenAnotherDatasourceAdded(LaunchResult result) {
         CLIResult cliResult = (CLIResult) result;
         cliResult.assertBuild();

@@ -24,6 +24,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.keycloak.it.junit5.extension.DistributionTest;
 import org.keycloak.it.junit5.extension.RawDistOnly;
+import org.keycloak.it.junit5.extension.WithDatabase;
 import org.keycloak.protocol.oidc.representations.OIDCConfigurationRepresentation;
 import org.keycloak.quarkus.runtime.services.resources.DebugHostnameSettingsResource;
 
@@ -31,6 +32,7 @@ import static io.restassured.RestAssured.when;
 
 @DistributionTest(keepAlive = true, enableTls = true, defaultOptions = { "--http-enabled=true" })
 @RawDistOnly(reason = "Containers are immutable")
+@WithDatabase(alias = "postgres")
 public class HostnameDistTest {
 
     @BeforeAll

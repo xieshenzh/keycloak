@@ -27,6 +27,7 @@ import org.keycloak.it.junit5.extension.BeforeStartDistribution;
 import org.keycloak.it.junit5.extension.CLIResult;
 import org.keycloak.it.junit5.extension.DistributionTest;
 import org.keycloak.it.junit5.extension.RawDistOnly;
+import org.keycloak.it.junit5.extension.WithDatabase;
 import org.keycloak.it.utils.KeycloakDistribution;
 import org.keycloak.it.utils.RawKeycloakDistribution;
 
@@ -36,6 +37,7 @@ import io.quarkus.test.junit.main.LaunchResult;
 
 @DistributionTest
 @RawDistOnly(reason = "Containers are immutable")
+@WithDatabase(alias = "postgres")
 public class ImportAtStartupDistTest {
 
     @Test

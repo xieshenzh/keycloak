@@ -21,10 +21,12 @@ import org.junit.jupiter.api.Test;
 import org.keycloak.it.junit5.extension.CLIResult;
 import org.keycloak.it.junit5.extension.DistributionTest;
 import org.keycloak.it.junit5.extension.RawDistOnly;
+import org.keycloak.it.junit5.extension.WithDatabase;
 import org.keycloak.it.utils.KeycloakDistribution;
 
 @RawDistOnly(reason = "Containers are immutable")
 @DistributionTest
+@WithDatabase(alias = "postgres")
 public class ExportDistTest {
 
     @Test
