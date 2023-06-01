@@ -26,6 +26,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.keycloak.it.junit5.extension.DistributionTest;
 import org.keycloak.it.junit5.extension.RawDistOnly;
+import org.keycloak.it.junit5.extension.WithDatabase;
 import org.keycloak.protocol.oidc.representations.OIDCConfigurationRepresentation;
 
 import io.quarkus.test.junit.main.Launch;
@@ -33,6 +34,7 @@ import io.restassured.RestAssured;
 
 @DistributionTest(keepAlive = true, enableTls = true)
 @RawDistOnly(reason = "Containers are immutable")
+@WithDatabase(alias = "postgres")
 public class ProxyDistTest {
 
     @BeforeAll

@@ -29,9 +29,11 @@ import io.quarkus.test.junit.main.Launch;
 import io.quarkus.test.junit.main.LaunchResult;
 
 import org.keycloak.it.junit5.extension.RawDistOnly;
+import org.keycloak.it.junit5.extension.WithDatabase;
 import org.keycloak.it.utils.KeycloakDistribution;
 
 @DistributionTest
+@WithDatabase(alias = "postgres")
 class BuildCommandDistTest {
 
     @Test

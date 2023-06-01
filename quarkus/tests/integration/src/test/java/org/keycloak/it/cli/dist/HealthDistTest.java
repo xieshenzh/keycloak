@@ -20,6 +20,7 @@ package org.keycloak.it.cli.dist;
 import io.quarkus.test.junit.main.Launch;
 import org.junit.jupiter.api.Test;
 import org.keycloak.it.junit5.extension.DistributionTest;
+import org.keycloak.it.junit5.extension.WithDatabase;
 import org.keycloak.it.utils.KeycloakDistribution;
 
 import static io.restassured.RestAssured.when;
@@ -34,6 +35,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.function.Supplier;
 
 @DistributionTest(keepAlive =true)
+@WithDatabase(alias = "postgres")
 public class HealthDistTest {
 
     @Test
